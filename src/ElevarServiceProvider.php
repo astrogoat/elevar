@@ -1,26 +1,24 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace Astrogoat\Elevar;
 
 use Helix\Lego\Apps\App;
 use Helix\Lego\LegoManager;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Settings\SkeletonSettings;
+use Astrogoat\Elevar\Settings\ElevarSettings;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class ElevarServiceProvider extends PackageServiceProvider
 {
     public function registerApp(App $app)
     {
         return $app
-            ->name('skeleton')
-            ->settings(SkeletonSettings::class)
+            ->name('elevar')
+            ->settings(ElevarSettings::class)
             ->migrations([
                 __DIR__ . '/../database/migrations',
                 __DIR__ . '/../database/migrations/settings',
-            ])
-            ->backendRoutes(__DIR__.'/../routes/backend.php')
-            ->frontendRoutes(__DIR__.'/../routes/frontend.php');
+            ]);
     }
 
     public function registeringPackage()
@@ -32,6 +30,6 @@ class SkeletonServiceProvider extends PackageServiceProvider
 
     public function configurePackage(Package $package): void
     {
-        $package->name('skeleton')->hasViews();
+        $package->name('elevar')->hasViews();
     }
 }
