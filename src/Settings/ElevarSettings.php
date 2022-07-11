@@ -2,13 +2,12 @@
 
 namespace Astrogoat\Elevar\Settings;
 
-use Astrogoat\Elevar\Actions\ElevarAction;
 use Helix\Lego\Settings\AppSettings;
 use Illuminate\Validation\Rule;
 
 class ElevarSettings extends AppSettings
 {
-     public string $uuid;
+    public string $uuid;
 
     public function rules(): array
     {
