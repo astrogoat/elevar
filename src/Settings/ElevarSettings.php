@@ -8,23 +8,14 @@ use Astrogoat\Elevar\Actions\ElevarAction;
 
 class ElevarSettings extends AppSettings
 {
-    // public string $url;
+     public string $uuid;
 
     public function rules(): array
     {
         return [
-            // 'url' => Rule::requiredIf($this->enabled === true),
+             'uuid' => Rule::requiredIf($this->enabled === true),
         ];
     }
-
-    // protected static array $actions = [
-    //     ElevarAction::class,
-    // ];
-
-    // public static function encrypted(): array
-    // {
-    //     return ['access_token'];
-    // }
 
     public function description(): string
     {

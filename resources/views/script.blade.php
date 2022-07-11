@@ -1,5 +1,5 @@
 @if(Astrogoat\Elevar\Settings\ElevarSettings::isEnabled())
-    <script id="elevar-dl-listener-config" type="application/json">{"data_layer_listener_script": "https://shopify-gtm-suite.getelevar.com/shops/8d32abbfac5dfa5f6dc324cc168c1c04849d24e8/events.js", "ss_url": null}</script>
+    <script id="elevar-dl-listener-config" type="application/json">{"data_layer_listener_script": "https://shopify-gtm-suite.getelevar.com/shops/{{ settings(Astrogoat\Elevar\Settings\ElevarSettings::class, 'uuid') }}/events.js", "ss_url": null}</script>
     <script>
         (function () {
             const configElement = document.getElementById("elevar-dl-listener-config");
