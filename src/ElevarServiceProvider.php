@@ -2,11 +2,11 @@
 
 namespace Astrogoat\Elevar;
 
+use Astrogoat\Elevar\Settings\ElevarSettings;
 use Helix\Lego\Apps\App;
 use Helix\Lego\LegoManager;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Astrogoat\Elevar\Settings\ElevarSettings;
 
 class ElevarServiceProvider extends PackageServiceProvider
 {

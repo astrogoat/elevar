@@ -2,9 +2,9 @@
 
 namespace Astrogoat\Elevar\Settings;
 
+use Astrogoat\Elevar\Actions\ElevarAction;
 use Helix\Lego\Settings\AppSettings;
 use Illuminate\Validation\Rule;
-use Astrogoat\Elevar\Actions\ElevarAction;
 
 class ElevarSettings extends AppSettings
 {

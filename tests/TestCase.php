@@ -2,9 +2,9 @@
 
 namespace Astrogoat\Elevar\Tests;
 
+use Astrogoat\Elevar\ElevarServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Astrogoat\Elevar\ElevarServiceProvider;
 
 class TestCase extends Orchestra
 {
