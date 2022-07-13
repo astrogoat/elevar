@@ -23,6 +23,8 @@ class ElevarServiceProvider extends PackageServiceProvider
 
     public function registeringPackage()
     {
+        $this->app->register(ElevarRouteServiceProvider::class);
+
         $this->callAfterResolving('lego', function (LegoManager $lego) {
             $lego->registerApp(fn (App $app) => $this->registerApp($app));
         });
@@ -30,6 +32,6 @@ class ElevarServiceProvider extends PackageServiceProvider
 
     public function configurePackage(Package $package): void
     {
-        $package->name('elevar')->hasViews();
+        $package->name('elevar')->hasViews()->hasConfigFile();
     }
 }
