@@ -2,8 +2,8 @@
 
 namespace Astrogoat\Elevar;
 
-use Astrogoat\Elevar\Settings\ElevarSettings;
 use Astrogoat\Elevar\Http\Middleware\StoreUtmQueryParams;
+use Astrogoat\Elevar\Settings\ElevarSettings;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Event;
 use Stancl\Tenancy\Events\TenancyBootstrapped;

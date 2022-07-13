@@ -3,7 +3,6 @@
 use Astrogoat\Elevar\Elevar;
 use Astrogoat\Utm\Utm;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Session;
 
 uses(RefreshDatabase::class);
 
