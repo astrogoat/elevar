@@ -1,4 +1,5 @@
 @if(Astrogoat\Elevar\Settings\ElevarSettings::isEnabled())
+    <!-- [ELEVAR] Start -->
     <script id="elevar-dl-listener-config" type="application/json">{"data_layer_listener_script": "https://shopify-gtm-suite.getelevar.com/shops/{{ settings(Astrogoat\Elevar\Settings\ElevarSettings::class, 'uuid') }}/events.js", "ss_url": null}</script>
     <script>
         (function () {
@@ -38,4 +39,5 @@
             }
         })();
     </script>
+    <!-- [ELEVAR] End -->
 @endif

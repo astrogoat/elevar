@@ -5,6 +5,7 @@ namespace Astrogoat\Elevar;
 use Astrogoat\Elevar\Settings\ElevarSettings;
 use Helix\Lego\Apps\App;
 use Helix\Lego\LegoManager;
+use Helix\Lego\Apps\Services\IncludeFrontendViews;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -18,7 +19,9 @@ class ElevarServiceProvider extends PackageServiceProvider
             ->migrations([
                 __DIR__ . '/../database/migrations',
                 __DIR__ . '/../database/migrations/settings',
-            ]);
+            ])->includeFrontendViews(function (IncludeFrontendViews $views) {
+                $views->addToHead(['elevar::script']);
+            });
     }
 
     public function registeringPackage()

@@ -79,7 +79,6 @@ test('Scenario 3', function () {
 });
 
 test('Scenario 4', function () {
-
     // 1. First visit `gclid=xxxx&utm_source=google&utm_medium=cpc&utm_term=button`
     $this->elevar->put([
         'gclid' => 'xxxx',
