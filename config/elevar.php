@@ -10,7 +10,7 @@ return [
         'fbclid',
         'gclid',
         'ttclid',
-        'irclid',
+        'irclickid',
         'user_id',
     ],
 
