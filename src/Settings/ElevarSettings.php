@@ -22,7 +22,6 @@ class ElevarSettings extends AppSettings
         ];
     }
 
-
     public function description(): string
     {
         return 'Interact with Elevar.';
@@ -49,7 +48,6 @@ class ElevarSettings extends AppSettings
 
     protected function help()
     {
-
         return [
             'server_side_enable' => 'This will enable the server side option.',
         ];
