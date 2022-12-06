@@ -8,16 +8,16 @@ use Illuminate\Validation\Rule;
 class ElevarSettings extends AppSettings
 {
     public string $uuid;
+    public bool $data_layer_listener_enabled;
     public string $server_side_url;
-    public bool $server_side_enable;
 
     public function rules(): array
     {
         return [
 
              'uuid' => Rule::requiredIf($this->enabled === true),
-             'server_side_enable' => ['boolean'],
-             'server_side_url' => Rule::requiredIf($this->server_side_enable === true),
+             'data_layer_listener_enabled' => 'boolean',
+             'server_side_url' => 'nullable',
 
         ];
     }
@@ -36,8 +36,12 @@ class ElevarSettings extends AppSettings
                'properties' => 'uuid',
            ],
            [
+               'title' => 'Data Layer Listener',
+               'properties' => 'data_layer_listener_enabled',
+           ],
+           [
                'title' => 'Server Side',
-               'properties' => ['server_side_enable','server_side_url'],
+               'properties' => 'server_side_url',
            ],
         ];
     }
@@ -51,7 +55,8 @@ class ElevarSettings extends AppSettings
     {
 
         return [
-            'server_side_enable' => 'This will enable the server side option.',
+            'data_layer_listener_enabled' => "Check to inject elevar code.",
+            'server_side_url' => 'Enter URL or null',
         ];
     }
 }
