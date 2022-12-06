@@ -22,7 +22,6 @@ class ElevarSettings extends AppSettings
         ];
     }
 
-
     public function description(): string
     {
         return 'Interact with Elevar.';
@@ -53,7 +52,6 @@ class ElevarSettings extends AppSettings
 
     protected function help()
     {
-
         return [
             'data_layer_listener_enabled' => "Check to inject elevar code.",
             'server_side_url' => 'Enter URL or null',
