@@ -17,7 +17,7 @@ class ElevarSettings extends AppSettings
 
              'uuid' => Rule::requiredIf($this->enabled === true),
              'data_layer_listener_enabled' => 'boolean',
-             'server_side_url' => 'nullable',
+             'server_side_url' => ['url','nullable']
 
         ];
     }
