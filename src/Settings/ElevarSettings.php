@@ -54,7 +54,7 @@ class ElevarSettings extends AppSettings
     {
         return [
             'data_layer_listener_enabled' => "Check to inject elevar code.",
-            'server_side_url' => 'Enter URL or null',
+            'server_side_url' => 'Enter URL or Leave blank for null',
         ];
     }
 }
