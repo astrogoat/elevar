@@ -31,17 +31,18 @@ class ElevarSettings extends AppSettings
     {
         return [
            [
-               'title' => 'Key',
-               'properties' => 'uuid',
+               'title' => 'Data Layer',
+               'properties' => ['data_layer_listener_enabled', 'uuid', 'server_side_url'],
            ],
-           [
-               'title' => 'Data Layer Listener',
-               'properties' => 'data_layer_listener_enabled',
-           ],
-           [
-               'title' => 'Server Side',
-               'properties' => 'server_side_url',
-           ],
+        ];
+    }
+    
+    protected function labels() : array
+    {
+        return [
+            'data_layer_listener_enabled' => 'Enable Elevar Data Layer',
+            'uuid' => 'Key (UUID)',
+            'server_side_url' => 'Server side URL',
         ];
     }
 
