@@ -36,8 +36,8 @@ class ElevarSettings extends AppSettings
            ],
         ];
     }
-    
-    protected function labels() : array
+
+    protected function labels(): array
     {
         return [
             'data_layer_listener_enabled' => 'Enable Elevar Data Layer',
