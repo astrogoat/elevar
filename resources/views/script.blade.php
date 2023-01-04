@@ -1,9 +1,14 @@
-@if(Astrogoat\Elevar\Settings\ElevarSettings::isEnabled())
 
-    @if(settings(Astrogoat\Elevar\Settings\ElevarSettings::class,'data_layer_listener_enabled'))
+@php($settings = settings(Astrogoat\Elevar\Settings\ElevarSettings::class))
 
+@if($settings->isEnabled() && $settings->data_layer_listener_enabled)
         <!-- [ELEVAR] Start -->
-        <script id="elevar-dl-listener-config" type="application/json">{"data_layer_listener_script": "https://shopify-gtm-suite.getelevar.com/shops/{{ settings(Astrogoat\Elevar\Settings\ElevarSettings::class, 'uuid') }}/events.js", "ss_url":@if(!blank(settings(Astrogoat\Elevar\Settings\ElevarSettings::class, 'server_side_url'))) "{{settings(Astrogoat\Elevar\Settings\ElevarSettings::class,'server_side_url')}}"@else{{" null"}}@endif}></script>
+        <script id="elevar-dl-listener-config" type="application/json">
+            {
+            "data_layer_listener_script": "https://shopify-gtm-suite.getelevar.com/shops/{{ $settings->uuid }}/events.js",
+             "ss_url": {!! blank($settings->server_side_url) ? 'null' : '"' . $settings->server_side_url . '"' !!}
+            }
+        </script>
         <script>
             (function () {
                 const configElement = document.getElementById("elevar-dl-listener-config");
@@ -45,4 +50,4 @@
         <!-- [ELEVAR] End -->
     @endif
 
-@endif
+
