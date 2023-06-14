@@ -10,6 +10,7 @@ class ElevarSettings extends AppSettings
     public string $uuid;
     public bool $data_layer_listener_enabled;
     public string $server_side_url;
+    public string $signing_key;
 
     public function rules(): array
     {
@@ -18,7 +19,7 @@ class ElevarSettings extends AppSettings
              'uuid' => Rule::requiredIf($this->enabled === true),
              'data_layer_listener_enabled' => 'boolean',
              'server_side_url' => ['nullable'],
-
+             'signing_key' => ['required'],
         ];
     }
 
@@ -32,7 +33,7 @@ class ElevarSettings extends AppSettings
         return [
            [
                'title' => 'Data Layer',
-               'properties' => ['data_layer_listener_enabled', 'uuid', 'server_side_url'],
+               'properties' => ['data_layer_listener_enabled', 'uuid', 'server_side_url','signing_key'],
            ],
         ];
     }
@@ -43,6 +44,7 @@ class ElevarSettings extends AppSettings
             'data_layer_listener_enabled' => 'Enable Elevar Data Layer',
             'uuid' => 'Key (UUID)',
             'server_side_url' => 'Server side URL',
+            'signing_key' => 'Signing Key',
         ];
     }
 
