@@ -1,7 +1,6 @@
 <?php
 
 use Astrogoat\Elevar\Elevar;
-use Astrogoat\Utm\Utm;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
