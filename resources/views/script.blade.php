@@ -5,7 +5,7 @@
     <script id="elevar-dl-listener-config" type="application/json">
         {
             "data_layer_listener_script": "https://shopify-gtm-suite.getelevar.com/shops/{{ $settings->uuid }}/{{ $settings->events_script_version }}/events.js",
-            "ss_url": {!! blank($settings->server_side_url) ? 'null' : '"' . $settings->server_side_url . '"' !!}
+            "ss_url": {!! blank($settings->server_side_url) ? 'null' : '"' . $settings->server_side_url . '"' !!},
             "signing_key": {{ $settings->signing_key }},
   	        "myshopify_domain": "{{ Str::of(settings(Astrogoat\Shopify\Settings\ShopifySettings::class)->url)->replace('https://', '') }}"
         }
