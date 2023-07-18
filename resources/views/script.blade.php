@@ -66,7 +66,7 @@
                     window.__ElevarDataLayerQueue = [];
                     window.__ElevarListenerLoadQueue = [];
                     if (!window.dataLayer) window.dataLayer = [];
-                }
+                };
                 init();
                 window.__ElevarTransformItem = event => {
                     if (typeof window.ElevarTransformFn === "function") {
@@ -86,11 +86,13 @@
                     } else {
                         return event;
                     }
-                }
+                };
                 window.ElevarPushToDataLayer = item => {
+                    const date = new Date();
+                    localStorage.setItem("___ELEVAR_GTM_SUITE--lastDlPushTimestamp", String(Math.floor(date.getTime() / 1000)));
                     const enrichedItem = {
                         event_id: window.crypto.randomUUID ? window.crypto.randomUUID() : String(Math.random()).replace("0.", ""),
-                        event_time: new Date().toISOString(),
+                        event_time: date.toISOString(),
                         ...item
                     };
                     const transformedEnrichedItem = window.__ElevarTransformItem ? window.__ElevarTransformItem(enrichedItem) : enrichedItem;
@@ -124,7 +126,7 @@
                             window.dataLayer.push(window.__ElevarDataLayerQueue.shift());
                         }
                     }
-                }
+                };
 
                 const configElement = document.getElementById("elevar-dl-aat-config");
 
@@ -149,6 +151,8 @@
                         console.error("Elevar: `ElevarGtmSuiteAAT` is not defined");
                         return;
                     }
+
+                    window.ElevarGtmSuiteAAT.utils.emailCapture();
 
                     await window.ElevarGtmSuiteAAT.handlers.register({
                         apexDomain: config.apex_domain,
