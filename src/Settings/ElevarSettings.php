@@ -21,9 +21,9 @@ class ElevarSettings extends AppSettings
              'uuid' => Rule::requiredIf($this->enabled === true),
              'data_layer_listener_enabled' => 'boolean',
              'server_side_url' => ['nullable'],
-             'signing_key' => ['required'],
-             'events_script_version' => ['required'],
-             'att_script_version' => ['required'],
+             'signing_key' => [Rule::requiredIf($this->enabled === true)],
+             'events_script_version' => [Rule::requiredIf($this->enabled === true)],
+             'att_script_version' => [Rule::requiredIf($this->enabled === true)],
         ];
     }
 
