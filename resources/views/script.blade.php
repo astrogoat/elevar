@@ -7,7 +7,7 @@
             "data_layer_listener_script": "https://shopify-gtm-suite.getelevar.com/shops/{{ $settings->uuid }}/{{ $settings->events_script_version }}/events.js",
             "ss_url": {!! blank($settings->server_side_url) ? 'null' : '"' . $settings->server_side_url . '"' !!},
             "signing_key": "{{ $settings->signing_key }}",
-  	        "myshopify_domain": "{{ Str::of(settings(Astrogoat\Shopify\Settings\ShopifySettings::class)->url)->replace('https://', '') }}"
+            "myshopify_domain": "{{ Str::of(settings(Astrogoat\Shopify\Settings\ShopifySettings::class)->url)->replace('https://', '') }}"
         }
     </script>
     <script>
@@ -52,10 +52,10 @@
         })();
     </script>
     <script id="elevar-dl-aat-config" type="application/json">
-      {
-        "data_layer_aat_script": "https://shopify-gtm-suite.getelevar.com/shops/{{ $settings->uuid }}/{{ $settings->att_script_version }}/aat.js",
-        "apex_domain": "{{ Str::of(url(''))->replace('http://', '') }}",
-        "consent_enabled": false
+        {
+            "data_layer_aat_script": "https://shopify-gtm-suite.getelevar.com/shops/{{ $settings->uuid }}/{{ $settings->att_script_version }}/aat.js",
+            "apex_domain": "{{ Str::of(url(''))->replace('http://', '') }}",
+            "consent_enabled": false
         }
     </script>
     <script>
@@ -64,7 +64,7 @@
                 window.__ElevarIsGtmSuiteAATCalled = true;
                 const init = () => {
                     window.__ElevarDataLayerQueue = [];
-                    window.__ElevarListenerLoadQueue = [];
+                    window.__ElevarListenerQueue = [];
                     if (!window.dataLayer) window.dataLayer = [];
                 };
                 init();
@@ -96,34 +96,23 @@
                         ...item
                     };
                     const transformedEnrichedItem = window.__ElevarTransformItem ? window.__ElevarTransformItem(enrichedItem) : enrichedItem;
-                    const listenerPayload = {
+                    const payload = {
                         raw: enrichedItem,
                         transformed: transformedEnrichedItem
                     };
-                    const getListenerNotifyEvent = () => {
-                        return new CustomEvent("elevar-listener-notify", {
-                            detail: listenerPayload
-                        });
-                    };
                     if (transformedEnrichedItem._elevar_internal?.isElevarContextPush) {
                         window.__ElevarIsContextSet = true;
-                        window.__ElevarDataLayerQueue.unshift(transformedEnrichedItem);
-                        if (window.__ElevarIsListenerListening) {
-                            window.dispatchEvent(getListenerNotifyEvent());
-                        } else {
-                            window.__ElevarListenerLoadQueue.unshift(listenerPayload);
-                        }
+                        window.__ElevarDataLayerQueue.unshift(payload);
+                        window.__ElevarListenerQueue.unshift(payload);
                     } else {
-                        window.__ElevarDataLayerQueue.push(transformedEnrichedItem);
-                        if (window.__ElevarIsListenerListening) {
-                            window.dispatchEvent(getListenerNotifyEvent());
-                        } else {
-                            window.__ElevarListenerLoadQueue.push(listenerPayload);
-                        }
+                        window.__ElevarDataLayerQueue.push(payload);
+                        window.__ElevarListenerQueue.push(payload);
                     }
+                    window.dispatchEvent(new CustomEvent("elevar-listener-notify"));
                     if (window.__ElevarIsContextSet) {
                         while (window.__ElevarDataLayerQueue.length > 0) {
-                            window.dataLayer.push(window.__ElevarDataLayerQueue.shift());
+                            const event = window.__ElevarDataLayerQueue.shift().transformed;
+                            window.dataLayer.push(event);
                         }
                     }
                 };
