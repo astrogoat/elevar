@@ -7,7 +7,7 @@
             "data_layer_listener_script": "https://shopify-gtm-suite.getelevar.com/shops/{{ $settings->uuid }}/{{ $settings->events_script_version }}/events.js",
             "ss_url": {!! blank($settings->server_side_url) ? 'null' : '"' . $settings->server_side_url . '"' !!},
             "signing_key": "{{ $settings->signing_key }}",
-            "myshopify_domain": "{{ Str::of(settings(Astrogoat\Shopify\Settings\ShopifySettings::class)->url)->replace('https://', '') }}"
+            "myshopify_domain": "{{ parse_url(Str::of(settings(Astrogoat\Shopify\Settings\ShopifySettings::class)->url), PHP_URL_HOST) }}"
         }
     </script>
     <script>
@@ -54,7 +54,7 @@
     <script id="elevar-dl-aat-config" type="application/json">
         {
             "data_layer_aat_script": "https://shopify-gtm-suite.getelevar.com/shops/{{ $settings->uuid }}/{{ $settings->att_script_version }}/aat.js",
-            "apex_domain": "{{ Str::of(url(''))->replace('http://', '') }}",
+            "apex_domain": "{{ parse_url(url()->full(), PHP_URL_HOST) }}",
             "consent_enabled": false
         }
     </script>
