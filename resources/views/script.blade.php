@@ -126,7 +126,6 @@
                 }
 
                 const config = JSON.parse(configElement.textContent);
-
                 const script = document.createElement("script");
                 script.type = "text/javascript";
                 script.src = config.data_layer_aat_script;
