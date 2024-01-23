@@ -87,7 +87,8 @@
                         return event;
                     }
                 };
-                window.ElevarPushToDataLayer = item => {
+                window.ElevarDataLayer = window.ElevarDataLayer ?? [];
+                window.ElevarDataLayer.push = item => {
                     const date = new Date();
                     localStorage.setItem("___ELEVAR_GTM_SUITE--lastDlPushTimestamp", String(Math.floor(date.getTime() / 1000)));
                     const enrichedItem = {
