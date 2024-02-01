@@ -1,7 +1,7 @@
 @php($settings = settings(Astrogoat\Elevar\Settings\ElevarSettings::class))
 
 @if($settings->isEnabled())
-    <!-- [ELEVAR] Start -->
+    <!-- -- [ELEVAR] Start -->
     <script type="module">
         try {
             const settings = {};
@@ -18,5 +18,8 @@
             console.error("Elevar Error:", error);
         }
     </script>
-    <!-- [ELEVAR] End -->
+    <script>
+        window.ElevarDataLayer = window.ElevarDataLayer ?? [];
+    </script>
+    <!-- -- [ELEVAR] End -->
 @endif
