@@ -24,7 +24,7 @@ class ElevarSettings extends AppSettings
     protected function labels(): array
     {
         return [
-            'uuid' => 'Key (UUID)',
+            'uuid' => 'Account ID',
         ];
     }
 
