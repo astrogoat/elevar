@@ -1,6 +1,6 @@
 @php($settings = settings(Astrogoat\Elevar\Settings\ElevarSettings::class))
 
-@if($settings->isEnabled() && $settings->data_layer_listener_enabled)
+@if($settings->isEnabled())
     <!-- [ELEVAR] Start -->
     <script type="module">
         try {
