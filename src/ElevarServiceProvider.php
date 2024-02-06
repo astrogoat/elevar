@@ -20,7 +20,7 @@ class ElevarServiceProvider extends PackageServiceProvider
                 __DIR__ . '/../database/migrations',
                 __DIR__ . '/../database/migrations/settings',
             ])->includeFrontendViews(function (IncludeFrontendViews $views) {
-                return $views->addToHead(['elevar::script']);
+                return $views->addToHead(['elevar::script'], 80);
             });
     }
 
