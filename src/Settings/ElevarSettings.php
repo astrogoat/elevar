@@ -21,7 +21,7 @@ class ElevarSettings extends AppSettings
         return 'Interact with Elevar.';
     }
 
-    protected function labels(): array
+    public function labels(): array
     {
         return [
             'uuid' => 'Account ID',
