@@ -10,6 +10,16 @@
     "license": "MIT",
     "authors": [
         {
+            "name": "Laura Tonning",
+            "email": "github@tonning.dev",
+            "role": "Developer"
+        },
+        {
+            "name": "Baffour Adu Boampong",
+            "email": "baffouraduboampong@gmail.com",
+            "role": "Developer"
+        },
+        {
             "name": "OniiCoder",
             "email": "oniicoder@gmail.com",
             "role": "Developer"
@@ -22,9 +32,8 @@
         }
     ],
     "require": {
-        "php": "^8.0",
+        "php": "^8.3",
         "astrogoat/strata": "^0.7.0",
-        "astrogoat/shopify": "^1.48",
         "spatie/laravel-package-tools": "^1.4.3",
         "illuminate/contracts": "^8.37 || ^9.0|^10.0"
     },
